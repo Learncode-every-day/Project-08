@@ -1,15 +1,17 @@
 .dropdown {
     position: absolute;
+    width: min(1240px, 100%);
     left: 0;
     padding-top: 54px;
     // Hiệu ứng chuyển tiếp
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.5s;
+    // visibility: hidden;
+    // opacity: 0;
+    // transition: all 0.5s;
 
     &__inner {
         position: relative;
         padding: 30px;
+        max-height: min(582px, 100vh - 158px);
 
         border-radius: 20px;
         background: var(--dropdown-bg-color);
@@ -22,6 +24,71 @@
             content: url("../icons/dropdown-arrow.svg");
             translate: -50%;
             filter: var(--dropdown-arrow-color);
+        }
+    }
+}
+
+.top-menu {
+    height: 100%;
+
+    &__main {
+        width: 292px;
+        height: 100%;
+        border-right: 1px solid var(--top-menu-border-color);
+    }
+}
+
+.menu-column {
+    display: flex;
+    gap: 14px;
+
+    &__icon {
+        // Chống méo icon khi nội dung dài
+        position: relative;
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+    }
+
+    &__content {
+        flex: 1;
+    }
+
+    &__icon-1 {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+    }
+
+    &__icon-2 {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 24px;
+        height: 24px;
+        object-fit: cover;
+    }
+
+    &__heading {
+        margin-top: 5px;
+        font-size: 1.6rem;
+        font-weight: 500;
+        line-height: 1.5; /* 150% */
+    }
+
+    &__list {
+        margin-top: 19px;
+    }
+
+    &__link {
+        display: block;
+        padding: 7px 0;
+        font-size: 1.4rem;
+        line-height: 1.43; /* 142.857% */
+
+        &:hover {
+            color: #0071dc;
+            font-weight: 500;
         }
     }
 }
