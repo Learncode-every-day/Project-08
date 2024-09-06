@@ -16,5 +16,8 @@
     "bugs": {
         "url": "https://github.com/Learncode-every-day/Project-08/issues"
     },
-    "homepage": "https://github.com/Learncode-every-day/Project-08#readme"
+    "homepage": "https://github.com/Learncode-every-day/Project-08#readme",
+    "dependencies": {
+        "project-8": "file:"
+    }
 }
