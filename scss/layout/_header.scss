@@ -93,6 +93,9 @@
     }
 
     &__item {
+        height: 50px;
+        transition: height 0.5s linear;
+
         &:hover .dropdown {
             visibility: visible;
             opacity: 1;
@@ -100,6 +103,22 @@
 
         @include abstracts.breakpoint(lg) {
             width: 100%;
+
+            &:hover .dropdown {
+                visibility: hidden;
+                opacity: 0;
+            }
+
+            &--active .dropdown {
+                visibility: visible !important;
+                opacity: 1 !important;
+                width: 100%;
+            }
+
+            &--active {
+                // Xử lý phần chiều cao của navbar__item khi có thêm navbar__item--active
+                height: auto;
+            }
         }
     }
 
@@ -124,6 +143,15 @@
 
     &__arrow {
         margin-top: 3px;
+
+        @include abstracts.breakpoint(lg) {
+            rotate: -90deg;
+            transition: rotate 0.3s linear;
+        }
+    }
+
+    &__item--active &__arrow {
+        rotate: 0deg;
     }
 }
 

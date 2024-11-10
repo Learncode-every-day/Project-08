@@ -1425,6 +1425,10 @@ html {
     height: calc(100% - 28px);
   }
 }
+.navbar__item {
+  height: 50px;
+  transition: height 0.5s linear;
+}
 .navbar__item:hover .dropdown {
   visibility: visible;
   opacity: 1;
@@ -1432,6 +1436,18 @@ html {
 @media (max-width: 991.98px) {
   .navbar__item {
     width: 100%;
+  }
+  .navbar__item:hover .dropdown {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .navbar__item--active .dropdown {
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 100%;
+  }
+  .navbar__item--active {
+    height: auto;
   }
 }
 .navbar__link {
@@ -1451,6 +1467,15 @@ html {
 }
 .navbar__arrow {
   margin-top: 3px;
+}
+@media (max-width: 991.98px) {
+  .navbar__arrow {
+    rotate: -90deg;
+    transition: rotate 0.3s linear;
+  }
+}
+.navbar__item--active .navbar__arrow {
+  rotate: 0deg;
 }
 
 .top-act {
@@ -1545,8 +1570,6 @@ html {
 @media (max-width: 991.98px) {
   .dropdown {
     padding-top: 0;
-    visibility: visible;
-    opacity: 1;
     position: initial;
   }
 }
