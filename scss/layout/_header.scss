@@ -42,13 +42,16 @@
 
         margin-left: 0;
         padding: 20px 0;
-        background: #fff;
+        border-radius: 0px 20px 20px 0px;
+        background: var(--sidebar-bg);
+        box-shadow: 0 40px 90px 20px var(--sidebar-shadow);
 
         translate: -100%;
         transition: translate 0.5s linear;
 
         &.show {
             translate: 0;
+            box-shadow: 0 40px 90px 20px var(--sidebar-shadow);
         }
 
         &.show ~ &__overlay {
@@ -57,11 +60,19 @@
         }
     }
 
+    @include abstracts.breakpoint(sm) {
+        inset: 0 20% 0 0; /*Trên phải dưới trái*/
+    }
+
     &__close-btn {
         display: none;
         @include abstracts.breakpoint(lg) {
             display: block;
             padding: 10px 40px;
+        }
+
+        @include abstracts.breakpoint(sm) {
+            padding: 0 20px 10px;
         }
     }
 
@@ -88,36 +99,48 @@
             flex-direction: column;
             align-items: flex-start;
             overflow-y: auto;
-            height: calc(100% - 28px);
+            height: calc(100% - 27px);
+        }
+
+        @include abstracts.breakpoint(md) {
+            height: calc(100% - 127px);
+        }
+
+        @include abstracts.breakpoint(sm) {
+            height: calc(100% - 105px);
         }
     }
 
     &__item {
-        height: 50px;
-        transition: height 0.5s linear;
+        // height: 50px;
+        // transition: height 0.5s linear;
 
         &:hover .dropdown {
-            visibility: visible;
-            opacity: 1;
+            // visibility: visible;
+            // opacity: 1;
+            display: block;
+            // height: auto;
         }
 
         @include abstracts.breakpoint(lg) {
             width: 100%;
 
             &:hover .dropdown {
-                visibility: hidden;
-                opacity: 0;
+                // visibility: hidden;
+                // opacity: 0;
+                display: none;
             }
+
+            // &--active {
+            //     // Xử lý phần chiều cao của navbar__item khi có thêm navbar__item--active
+            //     height: auto;
+            // }
 
             &--active .dropdown {
-                visibility: visible !important;
-                opacity: 1 !important;
-                width: 100%;
-            }
-
-            &--active {
-                // Xử lý phần chiều cao của navbar__item khi có thêm navbar__item--active
-                height: auto;
+                // visibility: visible !important;
+                // opacity: 1 !important;
+                display: block !important;
+                // width: 100%;
             }
         }
     }
@@ -138,6 +161,11 @@
 
             font-size: 1.6rem;
             line-height: 1.5; /* 150% */
+        }
+
+        @include abstracts.breakpoint(sm) {
+            height: 44px;
+            padding: 0 20px;
         }
     }
 
@@ -213,5 +241,31 @@
         object-fit: cover;
         border-radius: 8px;
         cursor: pointer;
+    }
+}
+
+.nav-btn {
+    height: 50px;
+    padding: 0 40px;
+    align-items: center;
+
+    @include abstracts.breakpoint(sm) {
+        height: 44px;
+        padding: 0 20px;
+    }
+
+    &__title,
+    &__qnt {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1.47; /* 146.667% */
+    }
+
+    &__title {
+        margin-left: 16px;
+    }
+
+    &__qnt {
+        margin-left: auto;
     }
 }
